@@ -1,3 +1,5 @@
+# 윤년 초기 버전
+
 year = 2024
 print("year = " + str(year))
 if year%4 == 0 and year%100 == 0 and year%400 == 0 :
