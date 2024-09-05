@@ -1,0 +1,5 @@
+option = "--list-services            --list-ports -d"
+
+print(option.split())
+
+# 결과값 : ['--list-services', '--list-ports', '-d']
