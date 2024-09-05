@@ -35,20 +35,20 @@ def main():
         print("사용법: python log_parser.py <로그_파일_경로> <읽을_라인_수>")
         sys.exit(1)
 
-        log_file_path = sys.argv[1]
-        try:
-            num_lines = int(sys.argv[2])
-            if num_lines <= 0:
-                raise ValueError
-        except ValueError:
-            print("오류: 라인 수는 양의 정수여야 합니다.")
-            sys.exit(1)
+    log_file_path = sys.argv[1]
+    try:
+        num_lines = int(sys.argv[2])
+        if num_lines <= 0:
+            raise ValueError
+    except ValueError:
+        print("오류: 라인 수는 양의 정수여야 합니다.")
+        sys.exit(1)
 
-        parsed_logs = parse_log_file(log_file_path, num_lines)
+    parsed_logs = parse_log_file(log_file_path, num_lines)
 
-        print(f"'{log_file_paht}'에서 최근 {len(parsed_logs)}개의 로그 항목:")
-        for log in parsed_logs:
-            print(f"시간: {log['timestamp']}, 레벨: {log['log_level']}, 메세지: {log['message']}")
+    print(f"'{log_file_paht}'에서 최근 {len(parsed_logs)}개의 로그 항목:")
+    for log in parsed_logs:
+        print(f"시간: {log['timestamp']}, 레벨: {log['log_level']}, 메세지: {log['message']}")
         
 if __name__ == "__main__":
     main()
