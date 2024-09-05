@@ -23,6 +23,7 @@ print(hello())
 def hello():
     return
 
+print("return은 ")
 print(hello())
 
 def hello():
@@ -31,4 +32,5 @@ print(hello())
 
 def hello():
     pass
+print("pass는 ")
 print(hello())

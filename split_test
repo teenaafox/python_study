@@ -1,4 +1,4 @@
-option = "--list-services            --list-ports -d"
+option = "--list-services     --list-ports -d"
 
 print(option.split())
 

@@ -1,3 +1,4 @@
+# 빈칸 출력 없애줘
 data = "   삼성전자    "
 print(data)
 print(repr(data))

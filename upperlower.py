@@ -1,4 +1,5 @@
-ticker = "btc_krw"
+# 대문자 소문자
+ticker = "btc_Krw"
 ticker1 = ticker.upper()
 
 if ticker1 == "BTC_KRW":
