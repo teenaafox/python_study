@@ -46,7 +46,7 @@ def main():
 
     parsed_logs = parse_log_file(log_file_path, num_lines)
 
-    print(f"'{log_file_paht}'에서 최근 {len(parsed_logs)}개의 로그 항목:")
+    print(f"'{log_file_path}'에서 최근 {len(parsed_logs)}개의 로그 항목:")
     for log in parsed_logs:
         print(f"시간: {log['timestamp']}, 레벨: {log['log_level']}, 메세지: {log['message']}")
         
