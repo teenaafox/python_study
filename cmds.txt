@@ -1,0 +1,7 @@
+# System check commands
+    echo 'Step 1: 디스크 용량 확인'
+    df -h
+    echo 'Step 2: 메모리 사용량 확인'
+    free -m
+    echo 'Step 3: 시스템 가동시간 확인'
+    uptime
