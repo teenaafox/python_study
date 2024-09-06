@@ -17,7 +17,12 @@ def parse_log_file(file_path, num_lines):
                         timestamp_str[:-5], "%Y-%m-%dT%H:%M:%S"
                     )
 
-                    formatted_date = timestamp.strftime("%Y년%m월%d일 %H:%M:%S")
+                    formatted_date = timestamp.strftime("%y년 %m월 %d일 %p %I시 %M분 %S초")
+                    formateed_date = formatted_date.replace("AM", "오전").replace("PM", "오후")
+
+                    formatted_date = re.sub(r'0(\d월)', r'\1', formatted_date)
+                    formatted_date = re.sub(r'0(\d일)', r'\1', formatted_date)
+                    formatted_date = re.sub(r'0(\d시)', r'\1', formatted_date)
 
                     parsed_logs.append(
                         {
