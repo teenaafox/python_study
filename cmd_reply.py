@@ -26,7 +26,15 @@ def read_commands_from_file(filename):
     :return: 명령어 리스트 또는 오류 시 None
     """
     try:
+        # 빈 줄이나 주석이 포함된 줄을 제외하고, 파일의 각 줄을 리스트로 반환
         with open(filename, 'r') as file:
+
+            # 리스트 내포(list comprehension)를 사용하여 파일의 각 줄(line)을 순회하며 처리
+            # 리스트 내포란? 
+            # 리스트를 간결하고 효율적으로 생성하는 방법 중 하나
+            # = 반복문과 조건문을 한 줄로 작성하여 리스트를 만들 수 있다
+            # 기본 형태:      [표현식 for 항목 in 반복 가능한 객체]
+            # 조건 추가 형태: [표현식 for 항목 in 반복 가능한 객체 if 조건]
             return [line.strip() for line in file if line.strip() and not line.startswith('#')]
     except IOError as e:
         print(f"파일 {filename} 읽기 오류: {e}")
