@@ -1,3 +1,9 @@
+"""
+'re'는 로그 라인에서 정보를 추출하는 데 사용됩니다.
+'sys'는 스크립트 실행 중 오류 처리나 종료에 사용될 수 있습니다.
+'datetime'은 로그의 타임스탬프를 파싱하고 조작하는 데 사용됩니다.
+'deque'는 효율적으로 로그 항목을 저장하고 관리하는 데 사용될 수 있습니다.
+"""
 import re
 import sys
 from datetime import datetime
@@ -9,12 +15,19 @@ def parse_log_file(file_path, num_lines):
     #  2024-08-05 -> - 문자로 split하면 연월일로 분리
     #  23:27:41+0900
     # \d{4}
+
+    # 패턴은 특정 형식의 문자열을 설명하는 문자열
+    # 이 패턴은 타임스탬프, 로그 수준, 로그 메시지를 매칭하는 정규 표현식
+    # 파이썬에서 문자열 앞에 r을 붙이면, 그 문자열이 **원시 문자열(raw string)**로 처리
+    # \w+: 하나 이상의 문자(알파벳, 숫자, 밑줄)를 의미
+    # .+: 하나 이상의 모든 문자(공백 포함)를 의미
     pattern = r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{4}) (\w+) (.+)'
     parsed_logs = deque(maxlen=num_lines)
 
     try:
         with open(file_path, 'r') as file:
             for line in file:
+                # file에서 읽어온 한줄씩의 문자열을 정규 표현식으로 매칭하여, 타임스탬프와 로그 수준, 메시지로 분리
                 match = re.match(pattern, line)
                 if match:
                     timestamp_str, log_level, message = match.groups()
@@ -42,7 +55,6 @@ def main():
     if len(sys.argv) != 3:
         print("사용법: python log_parser.py <로그_파일_경로> <읽을_라인_수>")
         sys.exit(1)
-
     log_file_path = sys.argv[1]
     try:
         num_lines = int(sys.argv[2])
