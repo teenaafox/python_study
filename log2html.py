@@ -1,7 +1,13 @@
-import re
-import sys
-from datetime import datetime
-from collections import deque
+"""
+'re'는 로그 라인에서 정보를 추출하는 데 사용됩니다.
+'sys'는 스크립트 실행 중 오류 처리나 종료에 사용될 수 있습니다.
+'datetime'은 로그의 타임스탬프를 파싱하고 조작하는 데 사용됩니다.
+'deque'는 효율적으로 로그 항목을 저장하고 관리하는 데 사용될 수 있습니다.
+"""
+import re        # 정규표현식 모듈인 're' : 문자열 패턴 매칭과 처리에 사용
+import sys       # 시스템 관련 파라미터와 함수를 제공하는 'sys' 모듈 - 스크립트 종료나 명령줄 인수 처리 등에 사용
+from datetime import datetime  # 'datetime' 모듈에서 'datetime' 클래스 - 이 클래스는 날짜와 시간을 다루는 데 사용
+from collections import deque  # 'collections' 모듈에서 'deque'(double-ended queue) 클래스 - deque는 양쪽 끝에서 빠르게 요소를 추가하거나 제거할 수 있는 리스트 형태의 컨테이너
 
 def parse_log_file(file_path, num_lines):
     pattern = r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{4}) (\w+) (.+)"
