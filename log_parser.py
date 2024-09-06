@@ -4,6 +4,11 @@ from datetime import datetime
 from collections import deque
 
 def parse_log_file(file_path, num_lines):
+    # 2024-08-05T23:27:41+0900
+    # T 문자로 split 하기 ->
+    #  2024-08-05 -> - 문자로 split하면 연월일로 분리
+    #  23:27:41+0900
+    # \d{4}
     pattern = r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{4}) (\w+) (.+)'
     parsed_logs = deque(maxlen=num_lines)
 
