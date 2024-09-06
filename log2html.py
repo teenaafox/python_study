@@ -83,7 +83,7 @@ def create_html_content(parsed_logs):
 def main():
     if len(sys.argv) != 4:
         print(
-            "사용법: python log_parser.py <로그_파일_경로> <읽을_라인_수> <출력_HTML_파일_경로>"
+            "사용법: python log2html/.py <로그_파일_경로> <읽을_라인_수> <출력_HTML_파일_경로>"
         )
         sys.exit(1)
     
@@ -100,7 +100,7 @@ def main():
 
     parsed_logs = parse_log_file(log_file_path, num_lines)
 
-    html_content = create_html_content(pared_logs)
+    html_content = create_html_content(parsed_logs)
 
     try:
         with open(output_html_path, "w", encoding="utf-8") as html_file:
