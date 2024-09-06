@@ -13,13 +13,21 @@ def parse_log_file(file_path, num_lines):
                 match = re.match(pattern, line)
                 if match:
                     timestamp_str, log_level, message = match.groups()
+
+                    # 문자열을 datetime 객체로 변환
+                    # 문자열의 형식을 지정하여 날짜와 시간 정보를 파싱
                     timestamp = datetime.strptime(
                         timestamp_str[:-5], "%Y-%m-%dT%H:%M:%S"
                     )
 
+                    # datetime 객체를 문자열로 변환
+                    # 원하는 형식의 문자열로 날짜와 시간을 포맷팅
+                    # %p는 AM/PM을 표시
+                    # %I는 12시간 형식으로 시간을 표시
                     formatted_date = timestamp.strftime("%y년 %m월 %d일 %p %I시 %M분 %S초")
                     formatted_date = formatted_date.replace("AM", "오전").replace("PM", "오후")
 
+                    # 월, 일, 시간 앞의 불필요한 0 제거
                     formatted_date = re.sub(r'0(\d월)', r'\1', formatted_date)
                     formatted_date = re.sub(r'0(\d일)', r'\1', formatted_date)
                     formatted_date = re.sub(r'0(\d시)', r'\1', formatted_date)
