@@ -22,9 +22,12 @@ def parse_log_file(file_path, num_lines):
                         'message': message.strip()
                     })
     except FileNotFoundError:
-        print(f"오류: '{file_paht}' 파일을 찾을 수 없습니다.")
+        print(f"오류: '{file_path}' 파일을 찾을 수 없습니다.")
         sys.exit(1)
     except PermissionError:
+        print(f"오류: '{file_path}' 파일을 읽을 권한이 없습니다.")
+        sys.exit(1)
+    except Exception as e:
         print(f"오류 발생: {str(e)}")
         sys.exit(1)
 
