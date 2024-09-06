@@ -16,9 +16,12 @@ def parse_log_file(file_path, num_lines):
                     timestamp = datetime.strptime(
                         timestamp_str[:-5], "%Y년%m월%d일T%H:%M:%S"
                     )
+
+                    formatted_date = timestamp.strftime("%Y년 %m월 %d일")
+
                     parsed_logs.append(
                         {
-                            "timestamp": timestamp,
+                            "timestamp": formatted_date,
                             "log_level": log_level,
                             "message": message.strip(),
                         }
