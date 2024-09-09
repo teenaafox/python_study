@@ -1,7 +1,7 @@
 import pandas as pd  # pip install pandas openpyxl
 import sys
 import os
-import csv        # comma seperated values 콤마로 분리된 구분된 데이터
+import csv
 
 
 def excel_to_csv(excel_file):
