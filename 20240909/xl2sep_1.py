@@ -15,7 +15,7 @@ def excel_to_sep(excel_file, separator="|"): # == def excel_to_sep(excel_file, s
 		text_file = f"{base_name}.txt"
 
 		# 파일로 저장
-		with open(text_file, "a", encoding="utf8") as f:
+		with open(text_file, "w", encoding="utf8") as f:
 			# 컬럼 제목 출력
 			f.write(separator.join(df.columns) + "\n")
 

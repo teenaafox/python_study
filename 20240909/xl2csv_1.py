@@ -24,7 +24,7 @@ def excel_to_csv(excel_file):
 			for index, row in df.iterrows():
 				writer.writerow(row)
 
-		print(f"{excel_file}의 내용이 {csv_file}에 성공적으로 저장되었습니다.")
+		print(f"'{excel_file}'의 내용이 '{csv_file}'에 성공적으로 저장되었습니다.")
 
 	except Exception as e:
 		print(f"오류 발생: {str(e)}")
