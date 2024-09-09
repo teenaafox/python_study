@@ -1,5 +1,5 @@
-import requests     # pip install requests 필요
-from bs4 import BeautifulSoup  # pip install bs4
+import requests     # pip install requests 필요 # pip - 파이썬에서 외부 패키지 관리 
+from bs4 import BeautifulSoup  # pip install bs4  # 문서 읽고 특정 위치 내용을 끄집어 내는 역할
 
 # 웹 서버에 요청을 보낼 때 사용할 HTTP 헤더를 정의
 # User-Agent 값을 지정해 브라우저(Chrome)로부터 요청이 온 것처럼 속인다.
@@ -14,10 +14,10 @@ data = requests.get("https://www.naver.com", headers=headers)
 
 # 가져온 HTML 데이터를 BeautifulSoup을 통해 파싱
 # data.text는 웹 페이지의 HTML 소스 코드이고, "html.parser"는 HTML을 파싱할 때 사용할 파서(분석기)
-soup = BeautifulSoup(data.text, "html.parser")
+soup = BeautifulSoup(data.text, "html.parser")                        # 자바스크립트는 실행 못함
 
 # soup.select()는 CSS 선택자를 사용하여 HTML 요소를 선택
-# 여기서는 body 안에 있는 .blind 클래스를 가진 모든 요소를 선택하여 리스트로 저장
+# 여기서는 body 안에 있는 .blind 클래스를 가진 모든 요소를 선택하여 리스트로 저장 .blind == (class = blind)   id 관련한 것은 #blind 클래스 관련 .blind
 # .blind는 클래스 이름을 의미하며, 웹 페이지 내에서 스크린 리더를 위한 텍스트 정보가 주로 포함
 blind = soup.select("body .blind")
 

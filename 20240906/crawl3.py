@@ -6,7 +6,7 @@ import time
 
 # WebDriver 설정
 webdriver_options = webdriver.ChromeOptions()
-# webdriver_options.add_argument("--headless")
+# webdriver_options.add_argument("--headless")     
 webdriver_options.add_argument("--no-sandbox")
 webdriver_options.add_argument("--disable-dev-shm-usage")
 webdriver_options.add_argument(
@@ -36,7 +36,8 @@ try:
     get_active_content()
 
     # li.tab4 요소 클릭
-    tab4 = WebDriverWait(driver, 10).until(
+    # 마우스 클릭하는 요소(시가총액 상위 부분 클릭)
+    tab4 = WebDriverWait(driver, 10).until(                           # 10초 동안 기다려봐
         EC.element_to_be_clickable((By.CSS_SELECTOR, "li.tab4"))
     )
     tab4.click()

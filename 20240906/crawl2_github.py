@@ -39,10 +39,10 @@ driver.get(url)
 # 이메일 입력 필드 찾기
 # 페이지에서 ID가 "hero_user_email"인 요소(이메일 입력 필드)를 찾아 변수에 저장
 email_field = driver.find_element(By.ID, "hero_user_email")
-
+                                  
 # 이메일 입력 및 엔터 키 입력
 # 찾은 이메일 필드에 "teenaafox"라는 텍스트를 입력
-email_field.send_keys("teenaafox")
+email_field.send_keys("안녕하세요")
 # email_field.send_keys(Keys.RETURN)   # 엔터 키 입력
 
 # 입력된 내용 확인
@@ -57,4 +57,4 @@ print(f"입력된 이메일: {entered_email}")
 # 브라우저 종료    웹드라이버를 종료하는 코드
 # driver.quit()
 # 작업 결과를 확인하거나 다음 작업을 위한 대기 시간을 제공. 프로그램을 100초간 일시 정지
-time.sleep(100)   # 5초 대기
+time.sleep(100)   # 100초 대기
