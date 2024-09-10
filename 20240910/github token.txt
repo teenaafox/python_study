@@ -1,6 +1,4 @@
-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 
-
-git clone https://teenaafox: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@github.com/teenaafox/py.git
+git clone https://teenaafox:토큰@github.com/teenaafox/py.git
 git pull
 
 touch test.txt
