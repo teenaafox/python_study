@@ -95,7 +95,7 @@ def run_server(base_dir, port=8080):
     server_running = True
 
     def handle_user_input():
-        nonlocal server_running   # nonlocal 써야하는 이유: 함수 밖에서 쓴 변수는 밖의 것으로 안의 것은 안으로 인식하는데, 밖에 선언하고 함수 안에서 쓰고 싶을때 nonlocal dmf TJwnsek
+        nonlocal server_running   # nonlocal 써야하는 이유: 함수 밖에서 쓴 변수는 밖의 것으로 안의 것은 안으로 인식하는데, 밖에 선언하고 함수 안에서 쓰고 싶을때 nonlocal을 써준다
         while server_running:
             try:
                 user_input = input().strip().lower()

@@ -90,7 +90,7 @@ def run_server(base_dir, port=8080):
                 client_thread.start()
             except socket.timeout:
                 continue
-            except Exception ase:
+            except Exception as e:
                 print(f"연결 수락 중 오류 발생: {e}")
                 if not server_running:
                     break
@@ -109,4 +109,11 @@ def main():
 
     base_dir = os.path.abspath(os.path.expanduser(sys.argv[1]))
     if not os.path.isdir(base_dir):
-        print(f"오류:")
+        print(f"오류: {base_dir}는 유효한 디렉토리가 아닙니다.")
+        sys.exit(1)
+
+    run_server(base_dir)
+
+
+if __name__ == "__main__":
+    main()
