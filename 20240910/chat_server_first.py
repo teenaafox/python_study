@@ -2,8 +2,12 @@ import socket
 import threading
 
 
+# class : 같은 역할을 하는 함수들의 묶음
 class ChatServer:
+    # __함수__ : 미리 정해져 있는 함수
+    # 클래스가 호출되면 __init__함수가 먼저 실행된다. 내 정보 저장
     def __init__(self, host="localhost", port=5000):
+        # self: 내 자신 안에서 관리되는 변수들
         self.host = host
         self.port = port
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -28,10 +32,12 @@ class ChatServer:
 
         while True:
             try:
+                # 받은 데이터를 1024바이트 크기로 디코드 해서 가공
                 message = client_socket.recv(1024).decode("utf-8")
                 if not message:
                     break
 
+                # 사용자 이름 변경 부분 추가
                 if message.startswith("/set name "):
                     new_name = message[10:].strip()
                     if new_name:
@@ -41,6 +47,7 @@ class ChatServer:
                             f"{old_name}님이 {new_name}(으)로 이름을 변경했습니다."
                         )
                 else:
+                    # 서버에 붙은 클라이언트들에게 전부 broadcast
                     self.broadcast(f"{self.clients[client_socket]}: {message}")
 
             except ConnectionResetError:
@@ -59,5 +66,5 @@ class ChatServer:
 
 
 if __name__ == "__main__":
-    server = ChatServer()
+    server = ChatServer()   # 함수 실행하듯 클래스도 호출
     server.start()
