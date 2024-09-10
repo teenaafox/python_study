@@ -16,6 +16,7 @@ def excel_to_json(excel_file, json_file):
 	with open(json_file, "w", encoding="utf-8") as f:
 		json.dump(data, f, ensure_ascii=False, indent=4)
 
+
 if __name__ == "__main__":
 	# 사용 예시
 	excel_file = "test.xlsx"         # 변환할 엑셀 파일 이름
