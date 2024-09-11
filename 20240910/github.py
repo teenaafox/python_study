@@ -8,19 +8,19 @@ def get_github_repos(username, token):
 
     # 인증 헤더 설정
     headers = {
-        "Authorization": f"token {token}",
+        "Authorizaion": f"token {token}",
         "Accept": "application/vnd.github.v3+json",
     }
 
     try:
-        # GET 요청 보내기
+        # Get 요청 보내기
         response = requests.get(url, headers=headers)
         response.raise_for_status()  # 오류 발생 시 예외 발생
-
+        
         # JSON 응답 파싱
         repos = response.json()
-#        print(repos)
-#        print(json.dumps(repos, indent=2, ensure_ascii=False))
+
+        print(json.dumps(repos, indent=2, ensure_ascii=False))
 
         # 리포지토리 정보 출력
         print(f"{username}의 GitHub 리포지토리 목록:")
