@@ -5,7 +5,7 @@ def connect_and_query():
     try:
         # 데이터베이스 연결 설정
         connection = mysql.connector.connect(
-            host="localhost", port=3306, user="root", password="1234", database="sakila"
+            host="localhost", port=3306, user="root", password="p0o9i8", database="sakila"
         )
 
         # 커서 생성

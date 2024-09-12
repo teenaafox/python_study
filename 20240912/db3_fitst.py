@@ -3,7 +3,7 @@ import mysql.connector
 
 # MySQL 연결 설정
 db = mysql.connector.connect(
-    host="localhost", user="root", password="1234", database="sakila"
+    host="localhost", user="root", password="p0o9i8", database="sakila"
 )
 
 # 커서 생성
