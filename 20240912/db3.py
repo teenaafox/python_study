@@ -90,6 +90,14 @@ def main():
         # DELETE 작업 및 결과 출력
         delete_data(2)
         select_and_print()
+        delete_data(3)
+        select_and_print()
+        delete_data(4)
+        select_and_print()
+        delete_data(5)
+        select_and_print()
+        delete_data(6)
+        select_and_print()
 
     finally:
         # 프로그램 종료 시 테이블 삭제
